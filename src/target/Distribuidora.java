@@ -23,11 +23,14 @@ public class Distribuidora {
         double[] valores = new double[30];
         
         try{
-            objetoJson = (JSONObject) parser.parse(new FileReader("dados.json"));
+            JSONArray jsonArray = (JSONArray) parser.parse(new FileReader("dados.json"));
+//            objetoJson = (JSONObject) parser.parse(new FileReader("dados.json"));
             
             for (int i = 0; i < 30; i++){
-                dias[i] = (int) objetoJson.get("dia");
-                valores[i] = (double) objetoJson.get("valor");
+                dias[i] = (int) jsonArray.get(0);
+                valores[i] = (double) jsonArray.get(0);
+                
+                
             }
         } catch(FileNotFoundException e) {
             e.printStackTrace();
