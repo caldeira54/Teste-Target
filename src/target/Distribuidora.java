@@ -13,24 +13,24 @@ import org.json.simple.parser.JSONParser;
 public class Distribuidora {
     public static void main(String[] args) {
         JSONObject objetoJson;
+        
         JSONParser parser = new JSONParser();
         int contDias = 0;
         double total = 0;
         double media;
         double menorFaturamento = Double.MAX_VALUE;
         double maiorFaturamento = Double.MIN_VALUE;
-        int[] dias = new int[30];
+        long[] dias = new long[30];
         double[] valores = new double[30];
         
         try{
             JSONArray jsonArray = (JSONArray) parser.parse(new FileReader("dados.json"));
-//            objetoJson = (JSONObject) parser.parse(new FileReader("dados.json"));
-            
             for (int i = 0; i < 30; i++){
-                dias[i] = (int) jsonArray.get(0);
-                valores[i] = (double) jsonArray.get(0);
-                
-                
+                objetoJson = (JSONObject)jsonArray.get(i);
+                dias[i] = (long) objetoJson.get("dia");
+                valores[i] = (double) objetoJson.get("valor");             
+                System.out.println(dias[i]);
+                System.out.println(valores[i]);
             }
         } catch(FileNotFoundException e) {
             e.printStackTrace();
