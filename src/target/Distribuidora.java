@@ -28,9 +28,7 @@ public class Distribuidora {
             for (int i = 0; i < 30; i++){
                 objetoJson = (JSONObject)jsonArray.get(i);
                 dias[i] = (long) objetoJson.get("dia");
-                valores[i] = (double) objetoJson.get("valor");             
-                System.out.println(dias[i]);
-                System.out.println(valores[i]);
+                valores[i] = (double) objetoJson.get("valor");
             }
         } catch(FileNotFoundException e) {
             e.printStackTrace();
